@@ -1,0 +1,13 @@
+= javascript_include_tag 'catarse_compra_facil'
+
+h3= t('projects.backers.review.multibanco.section_title')
+
+#catarse_paypal_express_form
+  = form_tag pay_compra_facil_path(params[:id]) do
+    .clearfix
+    .bootstrap-twitter
+      = label_tag 'user_document', t('projects.backers.review.multibanco.user_document_label')
+      .clearfix
+      = text_field_tag 'user_document', nil, { autocomplete: 'off' }
+      .loader.hide= image_tag 'loading.gif'
+      = submit_tag t('projects.backers.review.multibanco.button'), :class => 'btn btn-primary btn-large'

@@ -1,0 +1,9 @@
+pt:
+  projects:
+    backers:
+      review:
+        comprafacil: "Multibanco"
+        multibanco:
+          section_title: 'Sera gerada a sua referencia multibanco.'
+          user_document_label: 'NIF'
+          button: 'Gerar Referencia'
