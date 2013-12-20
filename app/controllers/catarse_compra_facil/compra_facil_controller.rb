@@ -17,7 +17,7 @@ class CatarseCompraFacil::CompraFacilController < ApplicationController
 
       backer.update_attributes payment_method: 'CompraFacil', entity: @comprafacil.entity, reference: @comprafacil.reference
 
-      flash[:success] = t('sucess_comprafacil', scope: SCOPE)
+      flash[:success] = t('success_comprafacil', scope: SCOPE)
       redirect_to main_app.project_backer_path(project_id: backer.project.id, id: backer.id)
 
     rescue Exception => e
