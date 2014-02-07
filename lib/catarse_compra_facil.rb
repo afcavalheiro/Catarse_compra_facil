@@ -96,6 +96,11 @@ module CatarseCompraFacil
       if PaymentEngines.configuration[:comprafacil_CustomerID] and PaymentEngines.configuration[:comprafacil_password]
         self.user = PaymentEngines.configuration[:comprafacil_CustomerID]
         self.password = PaymentEngines.configuration[:comprafacil_password]
+        if Rails.env.development? || Rails.env.test?
+          self.user_type = 10241
+        else
+          self.user_type = 11249
+        end
       else
         puts "[PayPal] An API Certificate or API Signature is required to make requests to PayPal"
       end
