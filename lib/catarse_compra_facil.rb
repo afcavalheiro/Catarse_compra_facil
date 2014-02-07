@@ -84,7 +84,7 @@ module CatarseCompraFacil
 
     def update_server_address
       if @payment_company == "multibanco"
-        @server_address = "https://hm.comprafacil.pt/SIBSClick2/webservice/clicksmsV4.asmx?WSDL" if @user_type == 11249
+        @server_address = "https://hm.comprafacil.pt/SIBSClick/webservice/clicksmsV4.asmx?WSDL" if @user_type == 11249
         @server_address = "https://hm.comprafacil.pt/SIBSClickTeste/webservice/clicksmsV4.asmx?wsdl" if @user_type == 10241
       else
         @server_address = "https://hm.comprafacil.pt/SIBSClick2/webservice/CompraFacilPS.asmx?WSDL" if @user_type == 11249
