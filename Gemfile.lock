@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    catarse_compra_facil (0.0.2)
+    catarse_compra_facil (0.0.6)
       rails (~> 3.2.13)
       savon (~> 2.3.2)
 

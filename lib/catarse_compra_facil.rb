@@ -22,7 +22,9 @@ module CatarseCompraFacil
                   :reference,
                   :entity,
                   :error,
-                  :payment_company
+                  :payment_company,
+                  :payed,
+                  :state
 
     attr_reader   :user_type, :server_address, :insert_mode
 
@@ -80,8 +82,20 @@ module CatarseCompraFacil
         self.reference = response.to_hash[:save_compra_to_bd_valor1_response][:referencia]
         self.entity = response.to_hash[:save_compra_to_bd_valor1_response][:entidade]
       end
+      puts response.to_hash;
+    end
 
-
+    def get_order_information!
+      client = Savon.client(wsdl: self.server_address)
+      message = { "referencia" => self.reference,
+                  "IDCliente" => self.user,
+                  :password => self.password
+      }
+      response = client.call(:get_info_compra, message: message)
+      if response.success?
+        self.payed = response.to_hash[:get_info_compra_response][:pago]
+        self.state = response.to_hash[:get_info_compra_response][:estado]
+      end
       puts response.to_hash;
     end
 
