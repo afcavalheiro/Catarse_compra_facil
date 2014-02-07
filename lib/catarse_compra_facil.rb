@@ -37,8 +37,8 @@ module CatarseCompraFacil
     def payment_company=(payment_company_text)
       if payment_company_text == "multibanco" or payment_company_text == "payshop"
         @payment_company = payment_company_text
-        update_server_address
         set_config
+        update_server_address
       else
         raise "payment_company should be 'multibanco' or 'payshop'"
       end
